@@ -1,5 +1,5 @@
 {
-  "name": "node-js-getting-started",
+  "name": "tfi2",
   "version": "0.1.2",
   "description": "A sample Node.js app using Express 4",
   "main": "index.js",
@@ -7,7 +7,13 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "express": "~4.9.x"
+    "csurf": "^1.6.4",
+    "express": "^4.9.8",
+    "express-stormpath": "^0.6.0",
+    "forms": "^1.1.0",
+    "jade": "^1.8.2",
+    "xtend": "^4.0.0",
+	"mongodb": "*";
   },
   "engines": {
     "node": "0.10.x"
@@ -21,5 +27,10 @@
     "heroku",
     "express"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/heroku/node-js-getting-started/issues"
+  },
+  "homepage": "https://github.com/heroku/node-js-getting-started",
+  "author": "Nikhil"
 }
