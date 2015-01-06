@@ -1,24 +1,23 @@
 html
-  head
-    title=title
-      link(href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css', rel='stylesheet')
-    body
-      div.container
-        div.jumbotron
-          h1 Hello!
-            if user
-              p Here you can browse all available lesson plans
-              #articles
-                - each article in articles
-                  div.article
-                    div.lpTitle = articles.lpTitle
-                    div.description = article.description
-                    div.author = article.author
-            else
-              p Welcome to the TFI Wiki, ready to get started?
-              p
-                a.btn.btn-primary(href="/login") Login now
-              p
-                span.small Don't have an account?
-                span &nbsp;
-                a.small(href="/register") Register now
+	head
+		title=title
+			link(href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css', rel='stylesheet')
+		body
+			div.container
+				div.jumbotron
+					h1 Hello!
+						if user
+							p Here you can browse all available lesson plans
+							table
+								tr
+									th Title
+									th Description
+									th Author
+						else
+							p Welcome to the TFI Wiki, ready to get started?
+							p
+								a.btn.btn-primary(href="/login") Login now
+							p
+								span.small Don't have an account?
+								span &nbsp;
+								a.small(href="/register") Register now
