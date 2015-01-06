@@ -9,7 +9,7 @@ html
             if user
               p Here you can browse all available lesson plans
               #articles
-                - 0 to articles.length
+                - each article in articles
                   div.article
                     div.lpTitle = articles.lpTitle
                     div.description = article.description

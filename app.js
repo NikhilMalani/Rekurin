@@ -17,7 +17,7 @@ var stormpathMiddleware = stormpath.init(app, {
 
 app.use(stormpathMiddleware);
 
-var articleProvider= new ArticleProvider();
+var articleProvider= new ArticleProvider('localhost',27017);
 
 app.get('/', function(req, res) {
   res.render('home', {
@@ -48,6 +48,17 @@ app.post('/lessonplan', function(req, res){
 		author: req.param('author')
     }, function( error, docs) {
         res.redirect('/')
+    });
+});
+
+app.get('/blog/:id', function(req, res) {
+    articleProvider.findById(req.params.id, function(error, article) {
+        res.render('blog_show.jade',
+        { locals: {
+            title: article.title,
+            article:article
+        }
+        });
     });
 });
 

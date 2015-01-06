@@ -13,7 +13,7 @@
     "forms": "^1.1.0",
     "jade": "^1.8.2",
     "xtend": "^4.0.0",
-	"mongodb": "*";
+	"mongodb": "*"
   },
   "engines": {
     "node": "0.10.x"
@@ -25,7 +25,8 @@
   "keywords": [
     "node",
     "heroku",
-    "express"
+    "express",
+	"mongodb"
   ],
   "license": "MIT",
   "bugs": {
