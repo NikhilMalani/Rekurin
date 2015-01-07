@@ -1,67 +1,71 @@
 var express = require('express');
-var stormpath = require('express-stormpath');
-var ArticleProvider = require('./articleProvider-memory').ArticleProvider;
+var path = require('path');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+
+// New Code
+var mongo = require('mongodb');
+var monk = require('monk');
+var db = monk('localhost:27017/nodetest1');
+
+var routes = require('./routes/index');
+var users = require('./routes/users');
 
 var app = express();
 
-app.set('views', './views');
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-var stormpathMiddleware = stormpath.init(app, {
-  apiKeyFile: 'C:/Users/User/Desktop/TeachFor India/tfi2/apiKey-4FKXVNLGK3FSC9Y4Q4SNBJAH6.properties',
-  application: 'https://api.stormpath.com/v1/applications/4vokpim3RweQMHqP6PNCeN',
-  secretKey: 'SOMERANDOMSTRINGTHATISLONGANDCONFUSING',
-  expandCustomData: true,
-  enableForgotPassword: true
+// uncomment after placing your favicon in /public
+//app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Make our db accessible to our router
+app.use(function(req,res,next){
+    req.db = db;
+    next();
 });
 
-app.use(stormpathMiddleware);
+app.use('/', routes);
+app.use('/users', users);
 
-var articleProvider= new ArticleProvider('localhost',27017);
-
-app.get('/', function(req, res) {
-  res.render('home', {
-    title: 'Teach For India Wiki'
-  });
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
 });
 
-app.get('/browse', function(req, res){
-  articleProvider.findAll(function(error, docs){
-    res.render('browse.jade', { locals: {
-		title: 'Browse Lesson Plans',
-		articles:docs
-		}
-	});
-  })
-});
+// error handlers
 
-app.get('/lessonplan', function(req, res) {
-  res.render('lessonplan', {
-    title: 'Create Lesson Plan'
-  });
-});
-
-app.post('/lessonplan', function(req, res){
-    articleProvider.save({
-        lpTitle: req.param('lpTitle'),
-        description: req.param('description'),
-		author: req.param('author')
-    }, function( error, docs) {
-        res.redirect('/')
-    });
-});
-
-app.get('/blog/:id', function(req, res) {
-    articleProvider.findById(req.params.id, function(error, article) {
-        res.render('blog_show.jade',
-        { locals: {
-            title: article.title,
-            article:article
-        }
+// development error handler
+// will print stacktrace
+if (app.get('env') === 'development') {
+    app.use(function(err, req, res, next) {
+        res.status(err.status || 500);
+        res.render('error', {
+            message: err.message,
+            error: err
         });
     });
+}
+
+// production error handler
+// no stacktraces leaked to user
+app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+        message: err.message,
+        error: {}
+    });
 });
 
-app.use('/profile',require('./profile')());
 
-app.listen(3000);
+module.exports = app;
