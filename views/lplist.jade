@@ -3,7 +3,7 @@ extends layout
 block content
 	h1.
 		Available Lesson Plans
-	table
+	table.table.table-striped
 		each lp, i in lplist
 			tr
 				td  #{lp.title}
