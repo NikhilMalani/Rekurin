@@ -1,14 +1,14 @@
 extends layout
 
 block content
-    h1= title
-    form#formAddLP(name="addlp",method="post",action="/addlp")
-        input#inputTitle(type="text", placeholder="Title", name="title")
-        input#inputDescription(type="text", placeholder="Description", name="description")
-        input#inputAuthor(type="text", placeholder="Author", name="author")
-        button#btnSubmit(type="submit") submit
-    ul
-			li
-				a(href="/") Home
-			li
-				a(href="/listlp") Browse lesson plans
+	h1= title
+	form#formAddLP(name="addlp",method="post",action="/addlp")
+		input#inputTitle(type="text", placeholder="Title", name="title")
+		input#inputDescription(type="text", placeholder="Description", name="description")
+		input#inputAuthor(type="text", placeholder="Author", name="author")
+		button#btnSubmit(type="submit") submit
+	ul
+		li
+			a(href="/") Home
+		li
+			a(href="/listlp") Browse lesson plans
