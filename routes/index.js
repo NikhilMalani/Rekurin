@@ -6,7 +6,7 @@ router.get('/', function(req, res) {
   res.render('index', { title: 'Teach For India Wiki' });
 });
 
-/* GET Hello World page. */
+/* GET Hello World page for testing. */
 router.get('/helloworld', function(req, res) {
     res.render('helloworld', { title: 'Hello, World!' })
 });
@@ -27,7 +27,7 @@ router.get('/newlp', function(req, res) {
     res.render('newlp', { title: 'Add New Lesson Plan' });
 });
 
-/* POST to Add User Service */
+/* POST to Add Lesson Plan Service */
 router.post('/addlp', function(req, res) {
 
     // Set our internal DB variable
@@ -59,4 +59,6 @@ router.post('/addlp', function(req, res) {
         }
     });
 })
+
+// Export the App object so that it can easily be called elsewhere in code.
 module.exports = router;

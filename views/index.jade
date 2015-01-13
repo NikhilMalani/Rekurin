@@ -1,10 +1,11 @@
 extends layout
 
 block content
-	h1= title
-		p Welcome to the  new #{title}
-	ul
-		li
-			a(href="/lplist") Browse lesson plans
-		li
-			a(href="/newlp") Add a new lesson plan
+	.container
+		h1= title
+		h3 Welcome to the new #{title}
+		.row
+			.col-md-6
+				a(href="/lplist") Browse lesson plans
+			.col-md-6
+				a(href="/newlp") Add a new lesson plan
