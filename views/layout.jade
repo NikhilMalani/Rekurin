@@ -1,9 +1,33 @@
 doctype html
 html
-	head
-		title= title
-		link(rel='stylesheet', href='/css/bootstrap.min.css')
-		link(rel='stylesheet', href='/css/style.css')
-	body
-		block content
-		script(src='/js/bootstrap.min.js')
+    head
+        title= title
+            meta(charset='UTF-8')
+            | &#x9;&#x9;
+            meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+            |  
+            | &#x9;&#x9;
+            meta(name='viewport', content='width=device-width, initial-scale=1.0')
+            |  
+            | &#x9;&#x9;
+            title REKUR.IN - Boring shopping automated.
+            | &#x9;&#x9;
+            meta(name='description', content='Automate the boring. Order once, get deliveries forever.')
+            | &#x9;&#x9;
+            meta(name='keywords', content='Recurring supplies, toiletries')
+            | &#x9;&#x9;
+            meta(name='author', content='Nikhil Malani')
+            | &#x9;&#x9;
+            link(rel='shortcut icon', href='../favicon.ico')
+            |  
+            | &#x9;&#x9;
+            link(rel='stylesheet', type='text/css', href='css/styles.css')
+            | &#x9;&#x9;
+            script(src='js/modernizr.custom.js')
+            |         
+            script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js')
+            | &#x9;
+    body
+        block content
+        script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js')
+        script(src='js/nlform.js')

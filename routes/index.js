@@ -3,59 +3,46 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Teach For India Wiki' });
+  res.render('index', { title: 'REKUR.IN - Boring Shopping Automated.' });
 });
 
-/* GET Hello World page for testing. */
-router.get('/helloworld', function(req, res) {
-    res.render('helloworld', { title: 'Hello, World!' })
-});
-
-/* GET Lesson Plan list page. */
-router.get('/lplist', function(req, res) {
-    var db = req.db;
-    var collection = db.get('lpcollection');
-    collection.find({},{},function(e,docs){
-        res.render('lplist', {
-            "lplist" : docs
-        });
-    });
-});
-
-/* GET New Lesson Plan page. */
-router.get('/newlp', function(req, res) {
-    res.render('newlp', { title: 'Add New Lesson Plan' });
-});
-
-/* POST to Add Lesson Plan Service */
-router.post('/addlp', function(req, res) {
+/* POST to Orders Collection */
+router.post('index', function(req, res) {
 
     // Set our internal DB variable
     var db = req.db;
 
     // Get our form values. These rely on the "name" attributes
-    var title = req.body.title;
-    var description = req.body.description;
-    var author = req.body.author;
+    var quantity = req.body.quantity;
+    var product = req.body.product;
+    var brand = req.body.brand;
+	var frequency = req.body.frequency;
+    var startDate = req.body.startDate;
+    var mobile = req.body.mobile;
+    var email = req.body.email;
 
     // Set our collection
-    var collection = db.get('lpcollection');
+    var collection = db.get('orderscollection');
 
     // Submit to the DB
     collection.insert({
-        "title" : title,
-        "description" : description,
-        "author" : author
+        "quantity" : quantity,
+        "product" : product,
+        "brand" : brand,
+        "frequency" : frequency,
+        "startDate" : startDate,
+        "mobile" : mobile,
+        "email" : email
     }, function (err, doc) {
         if (err) {
             // If it failed, return error
-            res.send("There was a problem adding the information to the database.");
+            res.send("There was a problem adding the order information to the database.");
         }
         else {
             // If it worked, set the header so the address bar doesn't still say /adduser
-            res.location("lplist");
+            res.location("/thankyou");
             // And forward to success page
-            res.redirect("lplist");
+            res.redirect("/thankyou");
         }
     });
 })

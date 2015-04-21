@@ -1,11 +1,136 @@
 extends layout
-
-block content
-	.container
-		h1= title
-		h3 Welcome to the new #{title}
-		.row
-			.col-md-6
-				a(href="/lplist") Browse lesson plans
-			.col-md-6
-				a(href="/newlp") Add a new lesson plan
+  body
+    body.nl-blurred
+      .container.demo-1
+        header
+          h1
+            | REKUR.IN 
+            span  Boring shopping automated. 
+        | &#x9;&#x9;&#x9;
+        .main.clearfix
+          form#nl-form.nl-form(target='_self', onsubmit='', action='')
+            | I need
+            label(for='quantity', hidden='') Quantity
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            select#quantity(name='quantity', tabindex='1')
+              option(value='0', selected='') quantity
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              option(value='1') 1
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              option(value='2') 2
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              option(value='3') 3
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              option(value='4') 4
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              option(value='5') 5
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              option(value='6') 6
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              option(value='7') 7
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              option(value='8') 8
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              option(value='9') 9
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              option(value='10') 10
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;packs of 
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            label(for='product', hidden='') Enter Product Here
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            input#product(name='product', type='text', placeholder='product', data-subline='Enter product above. For example: <em>Tooth Pastes</em> or <em>Baby Diapers</em>', tabindex='2')
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;of&#x9;&#x9;&#x9;&#x9;&#x9; 
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            label(for='brand', hidden='') Enter Brand Here
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            input#brand(name='brand', type='text', placeholder='company', data-subline='Enter brand above. For example: <em>Colgate</em> or <em>Pampers</em> or <em>Cheapest</em>', tabindex='3')
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;brand every
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            label(for='frequency', hidden='') Frequency
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            select#frequency(name='frequency', tabindex='4')
+              option(value='0', selected='') frequency
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              option(value='1') week
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              option(value='2') fortnight
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              option(value='3') 3 weeks
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              option(value='4') month
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;starting 
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            label(for='startDay', hidden='') Start Day
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            select#startDay(name='startDay', tabindex='5')
+              option(value='0', selected='') start day
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              option(value='1') ASAP
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              option(value='2') Monday
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              option(value='3') Tuesday
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              option(value='4') Wednesday
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              option(value='5') Thursday
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              option(value='6') Friday
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              option(value='7') Saturday
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              option(value='8') Sunday
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              option(value='9') 1st of next month
+            | .
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            br
+            hr
+            | &#x9;&#x9;&#x9;&#x9;&#x9;Contact me on 
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            label(for='mobile', hidden='') Enter Mobile Here
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            input#mobile(type='text', name='mobile', placeholder='mobile', data-subline='Enter your mobile number above. For example: <em>9000-000-000</em>', tabindex='6')
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;and email order confirmation at &#x9;&#x9;&#x9;&#x9;&#x9;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            label(for='email', hidden='') Enter Email Here
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            input#email(type='text', name='email', placeholder='email', data-subline='Enter your email address above. For example: <em>John.Smith@xyz.com</em>', tabindex='7')
+            | &#x9;&#x9;&#x9;&#x9;&#x9;.
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            br
+            hr
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            .nl-submit-wrap
+              button.nl-submit(type='submit', value='submit', tabindex='8') Setup Rekur.in
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            .nl-overlay
+      // /container
+      br
+      br
+      |     
+      |         
+      footer.footer
+        ul.footer_menu.list-inline.text-style-footer
+          li 1800-000-000
+          |                 
+          li Help@Rekur.in
+          |                 
+          li
+            a(href='https://www.facebook.com/') Facebook
+          |                 
+          li
+            a(href='https://twitter.com/') Twitter
+      // footer
+    
