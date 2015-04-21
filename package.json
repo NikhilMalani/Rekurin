@@ -1,7 +1,7 @@
 {
-  "name": "nodetest1",
-  "version": "0.0.0",
+  "name": "rekurin",
   "private": true,
+  "version": "0.0.0",
   "scripts": {
     "start": "node ./bin/www"
   },
@@ -13,8 +13,9 @@
     "serve-favicon": "~2.2.0",
     "debug": "~2.1.1",
     "jade": "~1.8.2",
-	"mongodb": "*",
-    "monk": "*",
-	"mongoskin": "*"
+	"mongodb": "*"
+  },
+  "engines": {
+    "node": "0.12.x"
   }
 }
